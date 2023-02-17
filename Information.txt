@@ -28,12 +28,33 @@ aws ec2 create-volume --availability-zone=us-east-1a --size=3 --volume-type=gp2
     "MultiAttachEnabled": false
 }
 
-??? - US-EAST-1A
-??? - US-EAST-1B
+
+### LABEL ###
+kubectl get nodes
+
+i-0eb1a1c866d76649d - US-EAST-1A
+i-069291813870550a8 - US-EAST-1B
+
+kubectl label nodes i-0f3192ffa5449f6ad zone=us-east-1a
+kubectl label nodes i-0f3192ffa5449f6ad zone=us-east-1a
+
+
+
+
+########################
+
+kubectl create -f app-secret.yml
+kubectl create -f vprodbdep.yml
+kubectl get deploy
+kubectl describe pod
+
+
+
+
+
 
 
 
 ### Delete ###
 
 kops delete cluster --name=kubevpro.blueaugust1290.uk --state=s3://vprofile-kops-state-1290 --yes
-
